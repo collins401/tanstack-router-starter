@@ -1,0 +1,16 @@
+@import 'antd/dist/reset.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  border-color: #EDEDED;
+  border-width: 0;
+  border-style: solid;
+}
+:root {
+  --color-default: 0,0,0;
+}
