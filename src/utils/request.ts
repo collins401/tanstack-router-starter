@@ -39,23 +39,25 @@ service.interceptors.response.use(
     if (res.request.responseType === 'blob' || res.request.responseType === 'arraybuffer') {
       return res.data
     }
-    // if (code === 401) {
-    //   location.href = '/login'
-    //   return Promise.reject(new Error('无效的会话，或者会话已过期，请重新登录。'))
-    // }
-    // if (code === 500) {
-    //   message.warning(msg);
-    //   return Promise.reject(new Error(msg));
-    // }
-    // if (code === 601) {
-    //   message.warning(msg);
-    //   return Promise.reject(new Error(msg));
-    // }
-    if (code !== 200) {
+    if (code === 401) {
+      location.href = '/login'
+      return Promise.reject(new Error('无效的会话，或者会话已过期，请重新登录。'))
+    }
+    if (code === 500) {
       toast.error(msg)
-      // message.warning(msg)
       return Promise.reject(new Error(msg))
     }
+    if (code === 601) {
+      toast.error(msg)
+      return Promise.reject(new Error(msg))
+    }
+    // if (code === 401) {
+    //   window.location.href = '/login'
+    // } else if (code !== 200) {
+    //   toast.error(msg)
+    //   // message.warning(msg)
+    //   return Promise.reject(new Error(msg))
+    // }
     return res.data
   },
   (error: AxiosError) => {

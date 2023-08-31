@@ -47,7 +47,6 @@ function Root() {
       </App>
       {/* Start rendering router matches */}
       <TanStackRouterDevtools position="bottom-right" />
-      {/* </StyleProvider> */}
     </>
   )
 }

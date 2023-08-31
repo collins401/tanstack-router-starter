@@ -1,6 +1,9 @@
 import ReactDOM from 'react-dom/client'
 import { Router, RouterProvider, createBrowserHistory } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
+
+import 'virtual:svg-icons-register'
+import 'virtual:uno.css'
 import './index.css'
 
 const router = new Router({

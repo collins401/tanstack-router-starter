@@ -15,10 +15,10 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.0",
     "@ant-design/icons": "^5.2.5",
-    "@tanstack/react-loaders": "0.0.1-beta.173",
-    "@tanstack/react-router": "0.0.1-beta.172",
-    "@tanstack/router-cli": "0.0.1-beta.172",
-    "@tanstack/router-devtools": "0.0.1-beta.172",
+    "@tanstack/react-loaders": "0.0.1-beta.174",
+    "@tanstack/react-router": "0.0.1-beta.174",
+    "@tanstack/router-cli": "0.0.1-beta.174",
+    "@tanstack/router-devtools": "0.0.1-beta.174",
     "ahooks": "^3.7.8",
     "antd": "^5.8.5",
     "autoprefixer": "^10.4.15",
@@ -44,6 +44,7 @@
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
+    "@unocss/transformer-variant-group": "^0.55.3",
     "@vitejs/plugin-react": "^4.0.4",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.48.0",
@@ -54,7 +55,9 @@
     "prettier": "^3.0.3",
     "rollup": "^3.28.1",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9"
+    "unocss": "^0.55.3",
+    "vite": "^4.4.9",
+    "vite-plugin-svg-icons": "^2.0.1"
   },
   "lint-staged": {
     "*.{ts,tsx}": [

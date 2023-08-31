@@ -19,6 +19,7 @@
     "multiline-ternary": "off",
     "operator-linebreak": "off",
     "prefer-promise-reject-errors": "off",
+    "n/prefer-global/process": "off",
     "quote-props": "off",
     "react/display-name": "off",
     "react/prop-types": "off",

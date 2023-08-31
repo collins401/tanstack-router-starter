@@ -34,7 +34,7 @@ export function Login() {
         if (res.code === 200) {
           Cookies.set(TOKEN_KEY, res.token)
           setTimeout(() => {
-            window.location.reload()
+            window.location.href = '/'
           }, 200)
         }
       })

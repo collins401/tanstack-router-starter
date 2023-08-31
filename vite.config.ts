@@ -1,10 +1,21 @@
 import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
+import UnoCSS from 'unocss/vite'
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    UnoCSS(),
+    createSvgIconsPlugin({
+      iconDirs: [resolve(process.cwd(), 'src/assets/svg')],
+      symbolId: 'icon-[name]',
+      inject: 'body-first',
+      customDomId: '__svg__icons__dom__'
+    })
+  ],
   server: {
     port: 2048,
     open: true,

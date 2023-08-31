@@ -1,6 +1,6 @@
 {
   "rootDirectory": ".",
   "routesDirectory": "./src/routes",
-  "routeFileIgnorePrefix": "-",
+  "routeFileIgnorePrefix": "components",
   "generatedRouteTree": "./src/routeTree.gen.ts"
 }
