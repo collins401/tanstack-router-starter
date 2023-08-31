@@ -1,0 +1,43 @@
+@import 'antd/dist/reset.css';
+*,
+*::before,
+*::after {
+  border-color: #EDEDED;
+  border-width: 0;
+  border-style: solid;
+}
+:root {
+  --color-default: 0,0,0;
+}
+
+.app-header {
+  background: linear-gradient(90deg, #273c92, #293e92);
+  box-shadow: 1px 0 7px 0 rgba(0,0,0,.5);
+  padding-left: 320px;
+  color: #fff;
+  padding-right: 20px;
+  width: 100%;
+  z-index: 10;
+  position: fixed;
+}
+.app-header::after {
+  background: #273c92 url('../assets/images/bg.png') 50%;
+  content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    opacity: .03;
+    z-index: -1;
+}
+.app-aside {
+  position: fixed;
+  z-index: 20;
+  border-radius: 6px 6px 0 0;
+  bottom: 0;
+  top: 20px;
+  box-shadow: 0 0.75rem 1.5rem rgba(18,38,63,.03);
+}

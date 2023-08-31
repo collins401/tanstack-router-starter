@@ -1,10 +1,10 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react'
+import { Suspense, createContext, useContext, useEffect, useMemo, useState } from 'react'
 import { FileRoute, Outlet } from '@tanstack/react-router'
 import { Layout } from 'antd'
 import { isEmpty } from 'lodash-es'
 import Header from './_layout/components/Header'
 import Aside from './_layout/components/Aside'
-import { Loading } from '@/components'
+import { ErrorBoundary, Loading } from '@/components'
 import { getUserInfo, getUserMenu } from '@/services/api'
 
 export interface AuthContextType {
@@ -28,6 +28,7 @@ export const route = new FileRoute('/_layout').createRoute({
 
 function LayoutPage() {
   const [auth, setAuth] = useState<AuthContextType['auth']>()
+  const [collapsed, setCollapsed] = useState(false)
   const contextValue = useMemo(
     () => ({
       auth
@@ -55,10 +56,22 @@ function LayoutPage() {
       <Layout className="!min-h-[100vh]">
         <Header name={auth?.user.remark} />
         <Layout>
-          <Aside />
-          <Layout.Content>
-            <Outlet />
-          </Layout.Content>
+          <Aside user={auth?.user} collapsed={false} onChange={e => {}} />
+          <div
+            className="2xl:mr-40px"
+            style={{
+              transition: 'all 0.2s',
+              padding: '1rem',
+              position: 'relative',
+              marginLeft: collapsed ? '80px' : '300px'
+            }}
+          >
+            <Suspense fallback={<Loading />}>
+              <ErrorBoundary>
+                <Outlet />
+              </ErrorBoundary>
+            </Suspense>
+          </div>
         </Layout>
       </Layout>
     </AuthContext.Provider>

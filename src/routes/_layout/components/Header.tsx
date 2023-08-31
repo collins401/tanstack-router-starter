@@ -34,9 +34,9 @@ const Header: React.FC<{ name: string }> = props => {
   ]
 
   return (
-    <Layout.Header className="!bg-primary pe-4 ps-4">
+    <Layout.Header className="pe-4 ps-4 app-header h-70px">
       <div className="flex">
-        <div className="flex-1 text-2xl font-500 text-white leading-64px">Logo</div>
+        <div className="flex-1 text-2xl font-500 text-white leading-70px">Logo</div>
         <div className="flex items-center space-x-3">
           <Switch
             checkedChildren={<SvgIcon type="moon" />}

@@ -5,6 +5,9 @@ import { route as LayoutCRoute } from './routes/_layout/c'
 import { route as LayoutARoute } from './routes/_layout/a'
 import { route as LayoutAllRoute } from './routes/_layout/$all'
 import { route as LayoutIndexRoute } from './routes/_layout/index'
+import { route as LayoutSystemUserRoute } from './routes/_layout/system/user'
+import { route as LayoutSystemDictRoute } from './routes/_layout/system/dict'
+import { route as LayoutSystemDictIndexRoute } from './routes/_layout/system/dict/index'
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
@@ -25,6 +28,15 @@ declare module '@tanstack/react-router' {
     }
     '/_layout/c': {
       parentRoute: typeof LayoutRoute
+    }
+    '/_layout/system/dict': {
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/system/user': {
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/system/dict/': {
+      parentRoute: typeof LayoutSystemDictRoute
     }
   }
 }
@@ -59,7 +71,29 @@ Object.assign(LayoutCRoute.options, {
   getParentRoute: () => LayoutRoute
 })
 
+Object.assign(LayoutSystemDictRoute.options, {
+  path: '/system/dict',
+  getParentRoute: () => LayoutRoute
+})
+
+Object.assign(LayoutSystemUserRoute.options, {
+  path: '/system/user',
+  getParentRoute: () => LayoutRoute
+})
+
+Object.assign(LayoutSystemDictIndexRoute.options, {
+  path: '/',
+  getParentRoute: () => LayoutSystemDictRoute
+})
+
 export const routeTree = rootRoute.addChildren([
-  LayoutRoute.addChildren([LayoutIndexRoute, LayoutAllRoute, LayoutARoute, LayoutCRoute]),
+  LayoutRoute.addChildren([
+    LayoutIndexRoute,
+    LayoutAllRoute,
+    LayoutARoute,
+    LayoutCRoute,
+    LayoutSystemDictRoute.addChildren([LayoutSystemDictIndexRoute]),
+    LayoutSystemUserRoute
+  ]),
   LoginRoute
 ])

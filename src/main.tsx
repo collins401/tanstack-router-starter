@@ -4,7 +4,7 @@ import { routeTree } from './routeTree.gen'
 
 import 'virtual:svg-icons-register'
 import 'virtual:uno.css'
-import './index.css'
+import './styles/index.css'
 
 const router = new Router({
   routeTree,
