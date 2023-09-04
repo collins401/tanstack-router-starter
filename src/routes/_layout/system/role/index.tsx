@@ -1,7 +1,7 @@
-import { FileRoute } from '@tanstack/react-router'
+import { FileRoute, Link } from '@tanstack/react-router'
 import useAccess from '@/hooks/useAccess'
 
-export const route = new FileRoute('/_layout/system/dict/').createRoute({
+export const route = new FileRoute('/_layout/system/role/').createRoute({
   component: PageA
 })
 
@@ -10,7 +10,8 @@ function PageA() {
   console.log(hasRole())
   return (
     <div className="p-2">
-      <h1>aaa-AAA</h1>
+      role
+      <Link to="user">to user</Link>
     </div>
   )
 }

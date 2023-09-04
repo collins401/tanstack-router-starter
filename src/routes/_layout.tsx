@@ -4,6 +4,7 @@ import { Layout } from 'antd'
 import { isEmpty } from 'lodash-es'
 import Header from './_layout/components/Header'
 import Aside from './_layout/components/Aside'
+import Auth from './_layout/components/Auth'
 import { ErrorBoundary, Loading } from '@/components'
 import { getUserInfo, getUserMenu } from '@/services/api'
 
@@ -58,7 +59,7 @@ function LayoutPage() {
         <Layout>
           <Aside user={auth?.user} collapsed={false} onChange={e => {}} />
           <div
-            className="2xl:mr-40px"
+            className="2xl:mr-40px flex-1"
             style={{
               transition: 'all 0.2s',
               padding: '1rem',
@@ -68,7 +69,9 @@ function LayoutPage() {
           >
             <Suspense fallback={<Loading />}>
               <ErrorBoundary>
-                <Outlet />
+                <Auth>
+                  <Outlet />
+                </Auth>
               </ErrorBoundary>
             </Suspense>
           </div>

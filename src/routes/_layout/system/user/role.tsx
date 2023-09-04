@@ -1,7 +1,7 @@
 import { FileRoute } from '@tanstack/react-router'
 import useAccess from '@/hooks/useAccess'
 
-export const route = new FileRoute('/_layout/system/user').createRoute({
+export const route = new FileRoute('/_layout/system/user/role').createRoute({
   component: PageA
 })
 
@@ -10,10 +10,10 @@ function PageA() {
   console.log(hasRole())
   return (
     <div className="p-2">
-      <h1>aaa-AAA</h1>
-      <h1>aaa-AAA</h1>
-      <h1>aaa-AAA</h1>
-      <h1>aaa-AAA</h1>
+      <h1>aaa-role</h1>
+      <h1>aaa-role</h1>
+      <h1>aaa-role</h1>
+      <h1>aaa-role</h1>
     </div>
   )
 }

@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently 'tsr watch' 'vite --port=3003'",
+    "dev": "concurrently 'tsr watch' 'vite --port=3003 --host'",
     "build": "tsr generate && vite build",
     "tsc": "tsc",
     "preview": "vite preview",
@@ -15,10 +15,10 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.17.0",
     "@ant-design/icons": "^5.2.5",
-    "@tanstack/react-loaders": "0.0.1-beta.174",
-    "@tanstack/react-router": "0.0.1-beta.174",
-    "@tanstack/router-cli": "0.0.1-beta.174",
-    "@tanstack/router-devtools": "0.0.1-beta.174",
+    "@tanstack/react-loaders": "0.0.1-beta.183",
+    "@tanstack/react-router": "0.0.1-beta.183",
+    "@tanstack/router-cli": "0.0.1-beta.183",
+    "@tanstack/router-devtools": "0.0.1-beta.183",
     "ahooks": "^3.7.8",
     "antd": "^5.8.5",
     "axios": "^1.5.0",
