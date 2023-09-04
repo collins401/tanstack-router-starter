@@ -38,7 +38,14 @@ const Header: React.FC<{ name: string }> = props => {
     <>
       <Layout.Header className="pe-4 ps-4 app-header h-70px">
         <div className="flex">
-          <div className="flex-1 text-2xl font-500 text-white leading-70px">Logo</div>
+          <div className="flex-1 text-2xl font-500 text-white leading-70px ">
+            <Link
+              to="/"
+              className="text-transparent bg-clip-text bg-gradient-to-r to-red-500 from-emerald-500"
+            >
+              TanStack Router starter
+            </Link>
+          </div>
           <div className="flex items-center space-x-3">
             <Switch
               checkedChildren={<SvgIcon type="moon" />}

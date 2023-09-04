@@ -91,9 +91,17 @@ const Aside: React.FC<IProps> = props => {
     <div className="app-aside bg-white left-0 lg:left-50px">
       <div className="text-center py-5">
         <div className="size-70px inline-block rounded-full overflow-hidden border-3 border-dark/20">
-          <img src={avatar} alt="avatar" className="size-70px  object-cover cursor-pointer" />
+          <img
+            src={avatar}
+            alt="avatar"
+            onClick={() => navigate({ to: '/account' })}
+            className="size-70px  object-cover cursor-pointer transition-all hover:scale-[1.1]"
+          />
         </div>
-        <div className="mx-2 text-lg text-primary cursor-pointer">
+        <div
+          className="mx-2 text-lg text-primary cursor-pointer"
+          onClick={() => navigate({ to: '/account' })}
+        >
           <span className="">{user?.nickName}</span>
           <span className="text-xs text-color/30">/{user?.remark}</span>
         </div>

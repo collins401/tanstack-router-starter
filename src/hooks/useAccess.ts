@@ -20,11 +20,13 @@ function useAccess() {
    * @param permission 权限code
    * @returns
    */
-  function hasPermission(permission?: string) {
+  function hasPermission(permission?: string | string[]) {
     if (auth?.permissions.includes(PERMISSION_ADMIN)) {
       return true
     }
-    if (permission && auth?.permissions.includes(permission)) {
+    if (!permission) return false
+    const codes = typeof permission === 'string' ? [permission] : permission
+    if (codes.some(s => auth?.permissions.includes(s))) {
       return true
     }
     return false

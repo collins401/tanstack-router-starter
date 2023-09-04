@@ -1,5 +1,8 @@
-import Loading from './loading'
-import SvgIcon from './svgIcon'
-import ErrorBoundary from './ErrorBoundary'
+import type { SearchOption } from './SearchForm/types'
 
-export { Loading, SvgIcon, ErrorBoundary }
+export { default as ErrorBoundary } from './ErrorBoundary'
+export { default as Loading } from './loading'
+export { default as SvgIcon } from './svgIcon'
+export { default as SearchForm } from './SearchForm'
+
+export { SearchOption }
