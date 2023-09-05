@@ -6,6 +6,7 @@ import 'virtual:svg-icons-register'
 import 'virtual:uno.css'
 import './styles/index.css'
 
+console.log('routeTree', routeTree)
 const router = new Router({
   routeTree,
   defaultPreload: 'intent',

@@ -1,5 +1,5 @@
 import { Suspense, createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { FileRoute, Outlet } from '@tanstack/react-router'
+import { FileRoute, Outlet, useRouter } from '@tanstack/react-router'
 import { Layout } from 'antd'
 import { isEmpty } from 'lodash-es'
 import Header from './_layout/components/Header'
@@ -28,6 +28,16 @@ export const route = new FileRoute('/_layout').createRoute({
 })
 
 function LayoutPage() {
+  const router = useRouter()
+  const breadcrumbs = router.state.matches.map(match => {
+    const { routeContext } = match!
+    console.log('match', match)
+    return {
+      title: routeContext?.getTitle?.(),
+      path: match.pathname
+    }
+  })
+  console.log('router', breadcrumbs)
   const [auth, setAuth] = useState<AuthContextType['auth']>()
   const [collapsed, setCollapsed] = useState(false)
   const contextValue = useMemo(

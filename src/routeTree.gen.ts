@@ -1,11 +1,10 @@
 import { route as rootRoute } from './routes/__root'
 import { route as LoginRoute } from './routes/login'
 import { route as LayoutRoute } from './routes/_layout'
-import { route as LayoutCRoute } from './routes/_layout/c'
-import { route as LayoutARoute } from './routes/_layout/a'
 import { route as LayoutAllRoute } from './routes/_layout/$all'
 import { route as LayoutIndexRoute } from './routes/_layout/index'
 import { route as LayoutSystemTestRoute } from './routes/_layout/system/test'
+import { route as LayoutSystemMenuRoute } from './routes/_layout/system/menu'
 import { route as LayoutSystemDictRoute } from './routes/_layout/system/dict'
 import { route as LayoutAccountNoticeRoute } from './routes/_layout/account/notice'
 import { route as LayoutAllAllRoute } from './routes/_layout/$all.$all'
@@ -32,12 +31,6 @@ declare module '@tanstack/react-router' {
     '/_layout/$all': {
       parentRoute: typeof LayoutRoute
     }
-    '/_layout/a': {
-      parentRoute: typeof LayoutRoute
-    }
-    '/_layout/c': {
-      parentRoute: typeof LayoutRoute
-    }
     '/_layout/account/': {
       parentRoute: typeof LayoutRoute
     }
@@ -48,6 +41,9 @@ declare module '@tanstack/react-router' {
       parentRoute: typeof LayoutRoute
     }
     '/_layout/system/dict': {
+      parentRoute: typeof LayoutRoute
+    }
+    '/_layout/system/menu': {
       parentRoute: typeof LayoutRoute
     }
     '/_layout/system/test': {
@@ -97,16 +93,6 @@ Object.assign(LayoutAllRoute.options, {
   getParentRoute: () => LayoutRoute
 })
 
-Object.assign(LayoutARoute.options, {
-  path: '/a',
-  getParentRoute: () => LayoutRoute
-})
-
-Object.assign(LayoutCRoute.options, {
-  path: '/c',
-  getParentRoute: () => LayoutRoute
-})
-
 Object.assign(LayoutAccountIndexRoute.options, {
   path: '/account/',
   getParentRoute: () => LayoutRoute
@@ -124,6 +110,11 @@ Object.assign(LayoutAccountNoticeRoute.options, {
 
 Object.assign(LayoutSystemDictRoute.options, {
   path: '/system/dict',
+  getParentRoute: () => LayoutRoute
+})
+
+Object.assign(LayoutSystemMenuRoute.options, {
+  path: '/system/menu',
   getParentRoute: () => LayoutRoute
 })
 
@@ -171,11 +162,10 @@ export const routeTree = rootRoute.addChildren([
   LayoutRoute.addChildren([
     LayoutIndexRoute,
     LayoutAllRoute.addChildren([LayoutAllAllRoute.addChildren([LayoutAllAllAllRoute])]),
-    LayoutARoute,
-    LayoutCRoute,
     LayoutAccountIndexRoute,
     LayoutAccountNoticeRoute,
     LayoutSystemDictRoute,
+    LayoutSystemMenuRoute,
     LayoutSystemTestRoute,
     LayoutSystemRoleIndexRoute,
     LayoutSystemUserIndexRoute,

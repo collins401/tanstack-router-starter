@@ -9,7 +9,7 @@ import { SearchForm } from '@/components'
 import { list } from '@/services/system/operlog'
 
 export const route = new FileRoute('/_layout/system/log/operlog').createRoute({
-  component: PageA
+  component: Operlog
 })
 interface RecordType {
   operId: number
@@ -31,7 +31,7 @@ function getTableData({ current, pageSize }: any, formData: any) {
     list: res.rows
   }))
 }
-function PageA() {
+function Operlog() {
   const [form] = Form.useForm()
   const { tableProps, search, loading } = useAntdTable(getTableData, {
     form,

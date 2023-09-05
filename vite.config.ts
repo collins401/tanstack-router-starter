@@ -29,5 +29,21 @@ export default defineConfig({
   },
   resolve: {
     alias: [{ find: '@', replacement: resolve(__dirname, './src') }]
+  },
+  build: {
+    chunkSizeWarningLimit: 1200,
+    assetsDir: 'static/img/',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          // 分包
+          vendor: ['react', 'react-dom', 'axios', '@tanstack/react-router', 'ahooks', 'dayjs'],
+          antd: ['antd']
+        },
+        chunkFileNames: 'static/js/[name]-[hash].js',
+        entryFileNames: 'static/js/[name]-[hash].js',
+        assetFileNames: 'static/[ext]/[name]-[hash].[ext]'
+      }
+    }
   }
 })

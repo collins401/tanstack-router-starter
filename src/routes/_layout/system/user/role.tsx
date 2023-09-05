@@ -4,10 +4,10 @@ import { ArrowLeftOutlined } from '@ant-design/icons'
 import useAccess from '@/hooks/useAccess'
 
 export const route = new FileRoute('/_layout/system/user/role').createRoute({
-  component: PageA
+  component: UserRole
 })
 
-function PageA() {
+function UserRole() {
   const { hasRole } = useAccess()
   console.log(hasRole())
   return (

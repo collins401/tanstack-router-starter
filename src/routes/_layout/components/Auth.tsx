@@ -1,6 +1,7 @@
 import { isEmpty } from 'lodash-es'
-import { Result } from 'antd'
+import { Button } from 'antd'
 import { useAuth } from '../../_layout'
+import ERROR from '@/assets/images/403.png'
 
 export const AUTH_ROUTE_WHITE_LIST = ['/', '/login', '/account', '/account/notice']
 
@@ -48,11 +49,18 @@ export default function Auth(props) {
   }
   if (isEmpty(access)) {
     return (
-      <Result
-        title="系统提示"
-        status="403"
-        subTitle="抱歉，您没有查看、编辑相关信息，或者进行相关功能操作的权限"
-      />
+      <div className="p-5 min-h-[calc(100vh-115px)]">
+        <div className="flex-between max-w-650px mx-auto pt-10">
+          <div className="pt-10">
+            <h2 className="text-primary text-3xl mb-7 font-500 ">403</h2>
+            <p className="text-color/60">很抱歉， 您没有访问该资源的权限！</p>
+            <Button type="primary">返回上一页</Button>
+          </div>
+          <div className="hidden flex-1 lg:text-right md:flex">
+            <img src={ERROR} alt="404" className="w-400px" />
+          </div>
+        </div>
+      </div>
     )
   }
 

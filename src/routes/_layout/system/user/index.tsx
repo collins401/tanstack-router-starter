@@ -17,7 +17,7 @@ import { SearchForm, type SearchOption } from '@/components'
 import { listUser } from '@/services/system/user'
 
 export const route = new FileRoute('/_layout/system/user/').createRoute({
-  component: PageA
+  component: UserPage
 })
 interface RecordType {
   userId: number
@@ -41,7 +41,7 @@ async function getTableData({ current, pageSize }: any, formData: any) {
   }))
 }
 
-function PageA() {
+function UserPage() {
   const [modal, contextHolder] = Modal.useModal()
   const [form] = Form.useForm()
   const navigate = useNavigate()

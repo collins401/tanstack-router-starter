@@ -2,10 +2,10 @@ import { FileRoute } from '@tanstack/react-router'
 import useAccess from '@/hooks/useAccess'
 
 export const route = new FileRoute('/_layout/system/dict').createRoute({
-  component: PageA
+  component: DictPage
 })
 
-function PageA() {
+function DictPage() {
   const { hasRole } = useAccess()
   console.log(hasRole())
   return (

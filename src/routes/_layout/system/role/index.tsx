@@ -2,10 +2,10 @@ import { FileRoute, Link } from '@tanstack/react-router'
 import useAccess from '@/hooks/useAccess'
 
 export const route = new FileRoute('/_layout/system/role/').createRoute({
-  component: PageA
+  component: RolePage
 })
 
-function PageA() {
+function RolePage() {
   const { hasRole } = useAccess()
   console.log(hasRole())
   return (

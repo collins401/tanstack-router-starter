@@ -1,5 +1,5 @@
 import { FileRoute, useNavigate } from '@tanstack/react-router'
-import { Button, Carousel, Form, Input } from 'antd'
+import { Button, Carousel, ConfigProvider, Form, Input } from 'antd'
 import { useCookieState, useRequest } from 'ahooks'
 import { LockOutlined, SafetyCertificateOutlined, UserOutlined } from '@ant-design/icons'
 import { useState } from 'react'
@@ -85,53 +85,61 @@ export function Login() {
       <div className="flex-1 flex justify-center items-center">
         <div className="max-w-[320px] rounded-md mx-auto  ">
           <h2 className="mb-5">用户登录</h2>
-          <Form
-            form={form}
-            size="large"
-            onFinish={submit}
-            autoComplete="off"
-            requiredMark={false}
-            initialValues={{ username: 'admin', password: 'admin123' }}
+          <ConfigProvider
+            theme={{
+              token: {
+                borderRadius: 0
+              }
+            }}
           >
-            <Form.Item name="username" rules={[{ required: true, message: '请输入您的账号' }]}>
-              <Input placeholder="用户名" prefix={<UserOutlined className="text-dark/40" />} />
-            </Form.Item>
-            <Form.Item name="password" rules={[{ required: true, message: '请输入您的密码' }]}>
-              <Input.Password
-                placeholder="密码"
-                prefix={<LockOutlined className="text-dark/40" />}
-              />
-            </Form.Item>
-            <Form.Item>
-              <div className="flex items-center space-x-4">
-                <Form.Item
-                  name="code"
-                  noStyle
-                  rules={[{ required: true, message: '请输入验证码' }]}
-                >
-                  <Input
-                    className="!flex-1"
-                    placeholder="验证码"
-                    prefix={<SafetyCertificateOutlined className="text-dark/40" />}
-                  />
-                </Form.Item>
-                <Form.Item noStyle>
-                  <img
-                    src={captcha?.avatar}
-                    onClick={refreshImg}
-                    alt="code"
-                    height={40}
-                    width={106}
-                  />
-                </Form.Item>
-              </div>
-            </Form.Item>
-            <Form.Item>
-              <Button type="primary" block htmlType="submit" loading={loading}>
-                登录
-              </Button>
-            </Form.Item>
-          </Form>
+            <Form
+              form={form}
+              size="large"
+              onFinish={submit}
+              autoComplete="off"
+              requiredMark={false}
+              initialValues={{ username: 'admin', password: 'admin123' }}
+            >
+              <Form.Item name="username" rules={[{ required: true, message: '请输入您的账号' }]}>
+                <Input placeholder="用户名" prefix={<UserOutlined className="text-dark/40" />} />
+              </Form.Item>
+              <Form.Item name="password" rules={[{ required: true, message: '请输入您的密码' }]}>
+                <Input.Password
+                  placeholder="密码"
+                  prefix={<LockOutlined className="text-dark/40" />}
+                />
+              </Form.Item>
+              <Form.Item>
+                <div className="flex items-center space-x-4">
+                  <Form.Item
+                    name="code"
+                    noStyle
+                    rules={[{ required: true, message: '请输入验证码' }]}
+                  >
+                    <Input
+                      className="!flex-1"
+                      placeholder="验证码"
+                      prefix={<SafetyCertificateOutlined className="text-dark/40" />}
+                    />
+                  </Form.Item>
+                  <Form.Item noStyle>
+                    <img
+                      src={captcha?.avatar}
+                      onClick={refreshImg}
+                      alt="code"
+                      height={40}
+                      width={106}
+                    />
+                  </Form.Item>
+                </div>
+              </Form.Item>
+              <Form.Item>
+                <Button type="primary" block htmlType="submit" loading={loading}>
+                  登录
+                </Button>
+              </Form.Item>
+            </Form>
+          </ConfigProvider>
         </div>
       </div>
     </div>
