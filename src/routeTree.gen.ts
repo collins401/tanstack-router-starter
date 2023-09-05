@@ -1,19 +1,17 @@
 import { route as rootRoute } from './routes/__root'
 import { route as LoginRoute } from './routes/login'
 import { route as LayoutRoute } from './routes/_layout'
-import { route as LayoutAllRoute } from './routes/_layout/$all'
 import { route as LayoutIndexRoute } from './routes/_layout/index'
 import { route as LayoutSystemTestRoute } from './routes/_layout/system/test'
 import { route as LayoutSystemMenuRoute } from './routes/_layout/system/menu'
 import { route as LayoutSystemDictRoute } from './routes/_layout/system/dict'
 import { route as LayoutAccountNoticeRoute } from './routes/_layout/account/notice'
-import { route as LayoutAllAllRoute } from './routes/_layout/$all.$all'
+import { route as LayoutAllRoute } from './routes/_layout/*.$all'
 import { route as LayoutAccountIndexRoute } from './routes/_layout/account/index'
 import { route as LayoutSystemUserRoleRoute } from './routes/_layout/system/user/role'
 import { route as LayoutSystemRoleUserRoute } from './routes/_layout/system/role/user'
 import { route as LayoutSystemLogOperlogRoute } from './routes/_layout/system/log.operlog'
 import { route as LayoutSystemLogLogininforRoute } from './routes/_layout/system/log.logininfor'
-import { route as LayoutAllAllAllRoute } from './routes/_layout/$all.$all.$all'
 import { route as LayoutSystemUserIndexRoute } from './routes/_layout/system/user/index'
 import { route as LayoutSystemRoleIndexRoute } from './routes/_layout/system/role/index'
 
@@ -28,14 +26,11 @@ declare module '@tanstack/react-router' {
     '/_layout/': {
       parentRoute: typeof LayoutRoute
     }
-    '/_layout/$all': {
-      parentRoute: typeof LayoutRoute
-    }
     '/_layout/account/': {
       parentRoute: typeof LayoutRoute
     }
-    '/_layout/$all/$all': {
-      parentRoute: typeof LayoutAllRoute
+    '/_layout/*/$all': {
+      parentRoute: typeof LayoutRoute
     }
     '/_layout/account/notice': {
       parentRoute: typeof LayoutRoute
@@ -54,9 +49,6 @@ declare module '@tanstack/react-router' {
     }
     '/_layout/system/user/': {
       parentRoute: typeof LayoutRoute
-    }
-    '/_layout/$all/$all/$all': {
-      parentRoute: typeof LayoutAllAllRoute
     }
     '/_layout/system/log/logininfor': {
       parentRoute: typeof LayoutRoute
@@ -88,19 +80,14 @@ Object.assign(LayoutIndexRoute.options, {
   getParentRoute: () => LayoutRoute
 })
 
-Object.assign(LayoutAllRoute.options, {
-  path: '/$all',
-  getParentRoute: () => LayoutRoute
-})
-
 Object.assign(LayoutAccountIndexRoute.options, {
   path: '/account/',
   getParentRoute: () => LayoutRoute
 })
 
-Object.assign(LayoutAllAllRoute.options, {
-  path: '/$all',
-  getParentRoute: () => LayoutAllRoute
+Object.assign(LayoutAllRoute.options, {
+  path: '/*/$all',
+  getParentRoute: () => LayoutRoute
 })
 
 Object.assign(LayoutAccountNoticeRoute.options, {
@@ -133,11 +120,6 @@ Object.assign(LayoutSystemUserIndexRoute.options, {
   getParentRoute: () => LayoutRoute
 })
 
-Object.assign(LayoutAllAllAllRoute.options, {
-  path: '/$all',
-  getParentRoute: () => LayoutAllAllRoute
-})
-
 Object.assign(LayoutSystemLogLogininforRoute.options, {
   path: '/system/log/logininfor',
   getParentRoute: () => LayoutRoute
@@ -161,8 +143,8 @@ Object.assign(LayoutSystemUserRoleRoute.options, {
 export const routeTree = rootRoute.addChildren([
   LayoutRoute.addChildren([
     LayoutIndexRoute,
-    LayoutAllRoute.addChildren([LayoutAllAllRoute.addChildren([LayoutAllAllAllRoute])]),
     LayoutAccountIndexRoute,
+    LayoutAllRoute,
     LayoutAccountNoticeRoute,
     LayoutSystemDictRoute,
     LayoutSystemMenuRoute,
