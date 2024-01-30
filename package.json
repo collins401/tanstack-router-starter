@@ -15,9 +15,7 @@
   "dependencies": {
     "@ant-design/cssinjs": "^1.18.4",
     "@ant-design/icons": "^5.2.6",
-    "@tanstack/react-loaders": "0.0.1-beta.183",
     "@tanstack/react-router": "1.15.2",
-    "@tanstack/router-cli": "1.14.1",
     "@tanstack/router-devtools": "1.15.2",
     "ahooks": "^3.7.9",
     "antd": "^5.13.3",
