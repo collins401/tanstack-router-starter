@@ -3,11 +3,13 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import UnoCSS from 'unocss/vite'
 import { createSvgIconsPlugin } from 'vite-plugin-svg-icons'
+import { TanStackRouterVite } from '@tanstack/router-vite-plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
+    TanStackRouterVite(),
     UnoCSS(),
     createSvgIconsPlugin({
       iconDirs: [resolve(process.cwd(), 'src/assets/svg')],
@@ -19,7 +21,6 @@ export default defineConfig({
   server: {
     port: 2048,
     open: true,
-    https: false,
     proxy: {
       '/prod-api/': {
         target: 'https://vue.ruoyi.vip',

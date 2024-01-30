@@ -1,7 +1,7 @@
-import { FileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 import useAccess from '@/hooks/useAccess'
 
-export const route = new FileRoute('/_layout/system/test').createRoute({
+export const Route = createFileRoute('/_layout/system/test')({
   component: PageA
 })
 

@@ -1,7 +1,7 @@
-import { FileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 import useAccess from '@/hooks/useAccess'
 
-export const route = new FileRoute('/_layout/system/dict').createRoute({
+export const Route = createFileRoute('/_layout/system/dict')({
   component: DictPage
 })
 

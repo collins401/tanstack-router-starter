@@ -1,4 +1,4 @@
-import { Outlet, RootRoute } from '@tanstack/react-router'
+import { Outlet, createRootRoute } from '@tanstack/react-router'
 import { TanStackRouterDevtools } from '@tanstack/router-devtools'
 import { App, ConfigProvider, Spin, theme } from 'antd'
 import { useCookieState } from 'ahooks'
@@ -7,13 +7,13 @@ import zhCN from 'antd/es/locale/zh_CN'
 import 'dayjs/locale/zh-cn'
 import { Suspense } from 'react'
 import { Toaster } from 'sonner'
-import { Login } from './login'
+import { LoginPage } from './login'
 import { TOKEN_KEY } from '@/constants'
 
 dayjs.locale('zh')
 
 const LAYOUT_WHITE_LIST = ['/login']
-export const route = new RootRoute({
+export const Route = createRootRoute({
   component: Root
 })
 
@@ -21,7 +21,6 @@ function Root() {
   const [token] = useCookieState(TOKEN_KEY)
   return (
     <>
-      {/* <StyleProvider hashPriority="high"> */}
       <App>
         <ConfigProvider
           locale={zhCN}
@@ -37,7 +36,7 @@ function Root() {
         >
           <Suspense fallback={<Spin />}>
             {!token && !LAYOUT_WHITE_LIST.includes(window.location.pathname) ? (
-              <Login />
+              <LoginPage />
             ) : (
               <Outlet />
             )}

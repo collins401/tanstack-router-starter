@@ -1,4 +1,4 @@
-import { FileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 import { Badge, Button, Calendar, Progress } from 'antd'
 import { AlertOutlined, FallOutlined, RiseOutlined, StrikethroughOutlined } from '@ant-design/icons'
 import dayjs from 'dayjs'
@@ -25,7 +25,7 @@ const icons = [
   { icon: 'prettier', title: 'prettier', desc: 'Code beautification', color: 'bg-[#eab308]/50' }
 ]
 
-export const route = new FileRoute('/_layout/').createRoute({
+export const Route = createFileRoute('/_layout/')({
   component: () => {
     return (
       <div className="p-2">

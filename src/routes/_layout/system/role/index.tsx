@@ -1,7 +1,7 @@
-import { FileRoute, Link } from '@tanstack/react-router'
+import { Link, createFileRoute } from '@tanstack/react-router'
 import useAccess from '@/hooks/useAccess'
 
-export const route = new FileRoute('/_layout/system/role/').createRoute({
+export const Route = createFileRoute('/_layout/system/role/')({
   component: RolePage
 })
 

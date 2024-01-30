@@ -1,9 +1,9 @@
-import { FileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 import { Button } from 'antd'
 import { ArrowLeftOutlined } from '@ant-design/icons'
 import useAccess from '@/hooks/useAccess'
 
-export const route = new FileRoute('/_layout/system/user/role').createRoute({
+export const Route = createFileRoute('/_layout/system/user/role')({
   component: UserRole
 })
 

@@ -1,5 +1,5 @@
 import { Suspense, createContext, useContext, useEffect, useMemo, useState } from 'react'
-import { FileRoute, Outlet, useRouter } from '@tanstack/react-router'
+import { Outlet, createFileRoute, useRouter } from '@tanstack/react-router'
 import { Layout } from 'antd'
 import { isEmpty } from 'lodash-es'
 import Header from './_layout/components/Header'
@@ -23,7 +23,7 @@ export function useAuth() {
   return useContext(AuthContext)
 }
 
-export const route = new FileRoute('/_layout').createRoute({
+export const Route = createFileRoute('/_layout')({
   component: LayoutPage
 })
 

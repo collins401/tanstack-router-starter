@@ -1,6 +1,6 @@
-import { FileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 
-export const route = new FileRoute('/_layout/account/notice').createRoute({
+export const Route = createFileRoute('/_layout/account/notice')({
   component: () => {
     return (
       <div className="p-2">

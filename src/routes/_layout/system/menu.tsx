@@ -1,6 +1,6 @@
-import { FileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 
-export const route = new FileRoute('/_layout/system/menu').createRoute({
+export const Route = createFileRoute('/_layout/system/menu')({
   component: MenuPage
 })
 function MenuPage() {

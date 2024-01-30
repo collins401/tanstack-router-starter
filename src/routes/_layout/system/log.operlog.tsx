@@ -1,4 +1,4 @@
-import { FileRoute } from '@tanstack/react-router'
+import { createFileRoute } from '@tanstack/react-router'
 import { Badge, Button, Form } from 'antd'
 import { useAntdTable } from 'ahooks'
 import type { ColumnsType } from 'antd/es/table'
@@ -8,7 +8,7 @@ import type { SearchOption } from '@/components'
 import { SearchForm } from '@/components'
 import { list } from '@/services/system/operlog'
 
-export const route = new FileRoute('/_layout/system/log/operlog').createRoute({
+export const Route = createFileRoute('/_layout/system/log/operlog')({
   component: Operlog
 })
 interface RecordType {

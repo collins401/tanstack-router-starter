@@ -1,4 +1,4 @@
-import { FileRoute, useNavigate } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import { Button, Carousel, ConfigProvider, Form, Input } from 'antd'
 import { useCookieState, useRequest } from 'ahooks'
 import { LockOutlined, SafetyCertificateOutlined, UserOutlined } from '@ant-design/icons'
@@ -8,11 +8,11 @@ import { TOKEN_KEY } from '@/constants'
 import { getCodeImg, login } from '@/services/api'
 import IMG from '@/assets/images/1.svg'
 
-export const route = new FileRoute('/login').createRoute({
-  component: Login
+export const Route = createFileRoute('/login')({
+  component: LoginPage
 })
 
-export function Login() {
+export function LoginPage() {
   const [_, setToken] = useCookieState(TOKEN_KEY)
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
@@ -58,7 +58,7 @@ export function Login() {
               <div>
                 <div className="bg-dark/40 rounded-2xl p-6 text-lg text-white/80">
                   <p>
-                    基于antd5.0 + Vite 4.4开发，力求简洁的 React
+                    基于Ant-Design5.0 + Vite5.0 + TanStack Router 开发，力求简洁的 React
                     后台管理框架，提供了一套完整的解决方案，让你专注于业务。
                   </p>
                 </div>

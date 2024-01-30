@@ -1,0 +1,16 @@
+// 生成一个tanstack 默认文件
+{
+  "tanstackLazyPage": {
+    "prefix": "tanstackLazyPage",
+    "body": [
+      "import { createLazyFileRoute } from '@tanstack/react-router'\n"
+      "export const Route = createLazyFileRoute('/demo')({"
+        "\tcomponent: DemoPage"
+      "})\n"
+      "function DemoPage() {"
+        "\treturn <div className=\"p-2\">Hello World!</div>"
+      "}\n"
+    ],
+    "description": "生成一个tanstack lazy page 默认文件"
+  },
+}

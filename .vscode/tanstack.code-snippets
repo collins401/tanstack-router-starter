@@ -1,0 +1,16 @@
+// 生成一个tanstack 默认文件
+{
+  "tanstackPage": {
+    "prefix": "tanstackPage",
+    "body": [
+      "import { createFileRoute } from '@tanstack/react-router'\n"
+      "export const Route = createFileRoute('/demo')({"
+        "\tcomponent: DemoPage"
+      "})\n"
+      "function DemoPage() {"
+        "\treturn <div className=\"p-2\">Hello World!</div>"
+      "}\n"
+    ],
+    "description": "生成一个tanstack page 默认文件"
+  },
+}

@@ -1,4 +1,4 @@
-import { FileRoute, useNavigate } from '@tanstack/react-router'
+import { createFileRoute, useNavigate } from '@tanstack/react-router'
 import type { MenuProps } from 'antd'
 import { Button, Dropdown, Form, Modal, Switch, Table } from 'antd'
 import { useAntdTable } from 'ahooks'
@@ -16,7 +16,7 @@ import useAccess from '@/hooks/useAccess'
 import { SearchForm, type SearchOption } from '@/components'
 import { listUser } from '@/services/system/user'
 
-export const route = new FileRoute('/_layout/system/user/').createRoute({
+export const Route = createFileRoute('/_layout/system/user/')({
   component: UserPage
 })
 interface RecordType {
