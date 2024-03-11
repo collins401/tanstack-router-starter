@@ -11,7 +11,7 @@ import {
   UserSwitchOutlined
 } from '@ant-design/icons'
 import type { ColumnsType } from 'antd/es/table'
-import ModifyPwdModal from './components/modiyPwd'
+import ModifyPwdModal from './-components/modiyPwd'
 import useAccess from '@/hooks/useAccess'
 import { SearchForm, type SearchOption } from '@/components'
 import { listUser } from '@/services/system/user'

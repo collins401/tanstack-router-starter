@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom/client'
-import { Router, RouterProvider, createBrowserHistory } from '@tanstack/react-router'
+import { RouterProvider, createBrowserHistory, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 
 import 'virtual:svg-icons-register'
@@ -7,9 +7,10 @@ import 'virtual:uno.css'
 import './styles/index.css'
 
 console.log('routeTree', routeTree)
-const router = new Router({
+const router = createRouter({
   routeTree,
   defaultPreload: 'intent',
+  defaultPreloadStaleTime: 0,
   history: createBrowserHistory()
 })
 

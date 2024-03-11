@@ -2,9 +2,9 @@ import { Suspense, createContext, useContext, useEffect, useMemo, useState } fro
 import { Outlet, createFileRoute, useRouter } from '@tanstack/react-router'
 import { Layout } from 'antd'
 import { isEmpty } from 'lodash-es'
-import Header from './_layout/components/Header'
-import Aside from './_layout/components/Aside'
-import Auth from './_layout/components/Auth'
+import Header from './_layout/-components/Header'
+import Aside from './_layout/-components/Aside'
+import Auth from './_layout/-components/Auth'
 import { ErrorBoundary, Loading } from '@/components'
 import { getUserInfo, getUserMenu } from '@/services/api'
 

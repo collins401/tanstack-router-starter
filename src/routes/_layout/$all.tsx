@@ -2,7 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { Button } from 'antd'
 import ERROR from '@/assets/images/404.png'
 
-export const Route = createFileRoute('/_layout/*/$all')({
+export const Route = createFileRoute('/_layout/$all')({
   component: () => {
     return (
       <div className="p-5 min-h-[calc(100vh-115px)]">
